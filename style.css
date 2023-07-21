@@ -7,12 +7,12 @@
 }
 
 .cont-principal {
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(9zh15zlpv5g61.png);
+    background-color: #0f0f1e;
     height: 100vh;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    /* background-attachment: fixed; */
+
 }
 
 header {
@@ -20,7 +20,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 1rem 10px;
-    background-color: #2d416b;
+    background-color: #2a2a4b;
     ;
 
 }
@@ -77,13 +77,14 @@ h2 {
     width: 250px;
     left: -200px;
     height: 600px;
-    background-color: #2d416b;
+    background-color: #2a2a4b;
     transition: 0.5s ease;
     color: white;
     text-align: center;
     z-index: 1;
     border-radius: 10px;
     border: solid #dca555;
+    margin-top: 15px;
 }
 
 .slide-in {
@@ -117,23 +118,25 @@ h2 {
     opacity: 0;
     width: 850px;
     height: 500px;
-    background: #607D8B;
     border-radius: 15px;
     padding: 10px;
     flex-direction: column;
-    border: solid 6px rgb(255 255 255 /33%);
+    box-shadow: 21px 20px 44px rgb(220 165 85 /10%);
     left: 60px;
 
 }
 
-.formulario1,.formulario2,.formulario3 {
+.formulario1,
+.formulario2,
+.formulario3 {
     display: flex;
     width: 100%;
     flex-direction: column;
     height: 30%;
-    background-color: rgb(16 16 18);
+    background-color: rgb(42 42 75);
     border-radius: 13px;
-    border: solid #673AB7;
+    padding: 10px;
+
 }
 
 .boton-salir {
@@ -192,7 +195,12 @@ label {
     align-items: flex-end;
 }
 
-#calcular,#btnBuscarID,#btnBuscarRango,#verResumen,#borrarRegistro,#btnRegistroCompleto {
+#calcular,
+#btnBuscarID,
+#btnBuscarRango,
+#verResumen,
+#borrarRegistro,
+#btnRegistroCompleto {
 
 
     margin: 0 auto;
@@ -220,11 +228,10 @@ label {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 0px 0px;
+    gap: 10px 10px;
     grid-template-areas:
         "Tid TventT Tcap Tint TganB TganN Tsal"
         "id ventas capital interes gananciasB gananciasN salidas ";
-    background-color: rgb(34 34 39);
     border-radius: 13px;
 }
 
@@ -319,9 +326,9 @@ label {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    background-color: rgb(16 16 18);
+    background-color: rgb(42 42 75);
     border-radius: 13px;
-    border: solid #673AB7
+
 }
 
 .titBarraRegistro {
@@ -385,27 +392,30 @@ label {
 
 /* caja2 BUSQUEDA POR ID */
 
-.formulario2{
+.formulario2 {
     justify-content: center;
 }
 
-.cajaDeInputsBusqId{
+.cajaDeInputsBusqId {
     display: flex;
     height: 40%;
     align-items: center;
 }
-#inpBuscarID{
+
+#inpBuscarID {
     width: 40%;
 }
-.resp2{
+
+.resp2 {
     margin-top: 30px;
 }
-#btnBuscarID{
+
+#btnBuscarID {
     height: 70%;
     width: 100px;
 }
 
-.resultado2{
+.resultado2 {
     margin-top: 40px;
     width: 100%;
     height: 200px;
@@ -417,7 +427,7 @@ label {
         "id2 ventas2 capital2 interes2 gananciasB2 gananciasN2 salidas2 "
         "Tfecha2 Tfecha2 Tfecha2 Tfecha2 Thora2 Thora2 Thora2"
         "fecha2 fecha2 fecha2 fecha2 hora2 hora2 hora2";
-    background-color: rgb(34 34 39);
+    gap: 10px 10px;
     border-radius: 13px;
 }
 
@@ -477,18 +487,17 @@ label {
     grid-area: Tsal2
 }
 
-.titfecha2{
+.titfecha2 {
     grid-area: Tfecha2
 }
 
-.tithora2{
+.tithora2 {
     grid-area: Thora2
 }
 
 
 .idValor2 {
     grid-area: id2
-
 }
 
 .ventasTValor2 {
@@ -516,15 +525,15 @@ label {
     grid-area: salidas2
 }
 
-.fechaValor2{
-    grid-area:fecha2
+.fechaValor2 {
+    grid-area: fecha2
 }
 
-.horaValor2{
+.horaValor2 {
     grid-area: hora2
 }
 
-.cuadroResp2{
+.cuadroResp2 {
     width: 100%;
     height: 10%;
     background-color: rgb(16 16 18);
@@ -539,13 +548,14 @@ label {
 
 /* CAJA 3 BUSCAR X RANGO */
 
-.formulario3{
+.formulario3 {
     flex-direction: row;
     align-items: center;
     height: 30%;
-} 
+}
 
-#buscarRangomin, #buscarRangoMax {
+#buscarRangomin,
+#buscarRangoMax {
     width: 25%;
     height: 30%;
 
@@ -556,20 +566,20 @@ label {
     height: 32%;
 }
 
-.resultadoBusquedaRango{
+.resultadoBusquedaRango {
     width: 100%;
     height: 60%;
-    background-color: rgb(16 16 18);
+
     border-radius: 13px;
-    border: solid #b73a3a;
+
     margin-top: 25px;
 
 }
 
-.titulos{
-    width: 100%;
+.titulos {
+    width: 99.5%;
     height: 30px;
-    background-color: rgb(34 34 39);
+
     border-radius: 13px;
     display: grid;
     grid-template-columns: 50px repeat(8, 1fr);
@@ -588,7 +598,7 @@ label {
 .titsalidas3,
 .titfecha3,
 .tithora3,
-.idValor3{
+.idValor3 {
     text-align: center;
     border: 1px solid #b73a3a;
     display: flex;
@@ -599,44 +609,60 @@ label {
 }
 
 
-.titid3{
+.titid3 {
     grid-area: Tid3;
 }
-.titVentasT3{
+
+.titVentasT3 {
     grid-area: TventT3;
 }
-.titcapital3{
-    grid-area: Tcap3 ;
+
+.titcapital3 {
+    grid-area: Tcap3;
 }
-.titgananciasN3{
-    grid-area:TganN3 ;
+
+.titgananciasN3 {
+    grid-area: TganN3;
 }
-.titint3{
+
+.titint3 {
     grid-area: Tint3;
 }
-.titgananciasB3{
+
+.titgananciasB3 {
     grid-area: TganB3;
 }
-.titsalidas3{
-    grid-area:Tsal3  ;
+
+.titsalidas3 {
+    grid-area: Tsal3;
 }
-.titfecha3{
+
+.titfecha3 {
     grid-area: Tfecha3;
 }
-.tithora3{
+
+.tithora3 {
     grid-area: Thora3;
 }
 
-.resp3{
+.resp3 {
     margin: 10px auto 0px auto;
     width: 99.5%;
     height: 240px;
-    background-color: rgb(16 16 18);
+
     border-radius: 5px;
     overflow-y: scroll;
 }
 
-.idValor3,.ventasTValor3,.capitalValor3,.intValor3,.gananciaBValor3,.gananciaNValor3,.salidasValor3,.fechaValor3,.horaValor3{
+.idValor3,
+.ventasTValor3,
+.capitalValor3,
+.intValor3,
+.gananciaBValor3,
+.gananciaNValor3,
+.salidasValor3,
+.fechaValor3,
+.horaValor3 {
     border: 1px solid #673AB7
 }
 
@@ -644,47 +670,65 @@ label {
 
 /* CAJA 4 VER REGISTRO COMPLETO */
 
-.resultadoRegistroCompleto{
+.resultadoRegistroCompleto {
     width: 100%;
     height: 85%;
-    background-color: rgb(197, 197, 212);
+
     border-radius: 13px;
-    border: solid #b73a3a;
+
     margin-top: 25px;
 }
-.registroCompleto{
+
+.registroCompleto {
     display: flex;
     justify-content: space-between;
-    height: 40px;
+    height: 48px;
+
+    background-color: rgb(42 42 75);
+    border-radius: 10px;
+    align-items: center;
 
 }
 
-.resp4{
+.resp4 {
     margin: 7px auto 0px auto;
-    width: 99.5%;
+    width: 102%;
     height: 90%;
     background-color: rgb(16 16 18);
     border-radius: 5px;
     overflow-y: scroll;
 }
 
-.idValor4,.ventasTValor4,.capitalValor4,.intValor4,.gananciaBValor4,.gananciaNValor4,.salidasValor4,.fechaValor4,.horaValor4{
+.idValor4,
+.ventasTValor4,
+.capitalValor4,
+.intValor4,
+.gananciaBValor4,
+.gananciaNValor4,
+.salidasValor4,
+.fechaValor4,
+.horaValor4 {
     border: 1px solid #b73a3a
 }
 
-#btnRegistroCompleto{
+#btnRegistroCompleto {
     width: 200px;
     height: 30px;
 }
 
 /*CAJA 5 RESUMEN */
 
-.formulario5{
-    height: 40px;
+.formulario5 {
+    height: 45px;
+    display: flex;
+    background-color: rgb(42 42 75);
+    align-items: center;
+    border-radius: 10px;
+    border: solid rgb(72 55 146);
 }
 
-.resp5{
-    padding: 10px;
+.resp5 {
+    margin-top: 10px;
     width: 100%;
     height: 90%;
     display: grid;
@@ -692,85 +736,103 @@ label {
     grid-template-rows: 40px 60px 2fr;
     row-gap: 10px;
     grid-template-areas: "ventasTot gananciasTot interesTot salidasTot"
-                        "ventasVal gananciasVal interesVal salidasVal "
-                        "cuadroResp5 cuadroResp5 cuadroResp5 cuadroResp5";
+        "ventasVal gananciasVal interesVal salidasVal "
+        "cuadroResp5 cuadroResp5 cuadroResp5 cuadroResp5";
 }
 
 
-.ventasTit,.gananciasTit,.interesTit,.salidasTit{
+.ventasTit,
+.gananciasTit,
+.interesTit,
+.salidasTit {
     color: wheat;
     text-align: center;
     font-size: 18px;
     font-weight: 800;
     border: solid #b73a3a;
+    border-radius: 10px;
     background-color: rgb(16 16 18);
 }
 
-.ventasTValor5,.gananciaNValor5,.interesValor5,.salidasValor5,.cuadroResp5{
+.ventasTValor5,
+.gananciaNValor5,
+.interesValor5,
+.salidasValor5,
+.cuadroResp5 {
     display: flex;
     justify-content: center;
     align-items: center;
     color: wheat;
     font-size: 18px;
     font-weight: 600;
-    border: solid #b73a3a;
+    border: solid rgb(87 71 116);
+    border-radius: 10px;
     text-align: center;
     background-color: rgb(16 16 18);
 }
 
 
-.ventasTit{
-    grid-area:ventasTot ;
+.ventasTit {
+    grid-area: ventasTot;
 }
-.gananciasTit{
+
+.gananciasTit {
     grid-area: gananciasTot;
 }
-.interesTit{
+
+.interesTit {
     grid-area: interesTot;
 }
-.salidasTit{
+
+.salidasTit {
     grid-area: salidasTot;
 }
-.ventasTValor5{
+
+.ventasTValor5 {
     grid-area: ventasVal;
 }
-.gananciaNValor5{
+
+.gananciaNValor5 {
     grid-area: gananciasVal;
 }
-.interesValor5{
+
+.interesValor5 {
     grid-area: interesVal;
 }
-.salidasValor5{
+
+.salidasValor5 {
     grid-area: salidasVal;
 }
 
-.cuadroResp5{
+.cuadroResp5 {
     grid-area: cuadroResp5;
 }
 
-#verResumen{
+#verResumen {
     width: 200px;
     height: 33px;
 }
 
 /* CAJA 6 BORRAR REGISTRO */
 
-.box6{
+.box6 {
     width: 500px;
     flex-direction: row;
     gap: 10px;
 }
 
-.formulario6{
+.formulario6 {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     gap: 20px;
     background-color: #0c0303;
     padding: 20px;
+    border: solid rgb(87 71 116);
+    border-radius: 10px;
 }
 
-#idABorrar{
+#idABorrar {
     border-radius: 10px;
     background: #404062;
     height: 10%;
@@ -783,18 +845,20 @@ label {
     padding-left: 10px;
 
 }
-#borrarRegistro{
+
+#borrarRegistro {
     width: 200px;
     height: 33px;
 }
 
-.borrado{
+.borrado {
     width: 100%;
     height: 100%;
     background-color: rgb(16 16 18);
-    
+    border: solid rgb(87 71 116);
     color: wheat;
     font-size: 20px;
+    border-radius: 10px;
 }
 
 
