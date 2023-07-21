@@ -1,0 +1,810 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+
+}
+
+.cont-principal {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(9zh15zlpv5g61.png);
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-attachment: fixed; */
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 10px;
+    background-color: #2d416b;
+    ;
+
+}
+
+.abrir-menu {
+    background-color: transparent;
+}
+
+.abrir-menu svg {
+    color: rgb(0, 0, 0);
+    width: 36px;
+    height: 36px;
+    border-radius: 7px;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #dca555;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #dca555;
+    font-size: 2rem;
+}
+
+.nav-list li a {
+    color: #dca555;
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.nav-list {
+    display: flex;
+    gap: 3rem;
+    flex-direction: column;
+    list-style-type: none;
+    align-items: center;
+}
+
+
+#main {
+
+    display: flex;
+
+}
+
+.left0 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    opacity: 0;
+    width: 250px;
+    left: -200px;
+    height: 600px;
+    background-color: #2d416b;
+    transition: 0.5s ease;
+    color: white;
+    text-align: center;
+    z-index: 1;
+    border-radius: 10px;
+    border: solid #dca555;
+}
+
+.slide-in {
+
+    opacity: 100%;
+    position: relative;
+    left: 10px;
+
+}
+
+/* Caja que contiene todos los box con formularios */
+
+.cajaDeCajas {
+    display: flex;
+    width: 100%;
+    padding: 30px;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column
+}
+
+
+.box1,
+.box2,
+.box3,
+.box4,
+.box5,
+.box6 {
+    display: flex;
+    position: absolute;
+    opacity: 0;
+    width: 850px;
+    height: 500px;
+    background: #607D8B;
+    border-radius: 15px;
+    padding: 10px;
+    flex-direction: column;
+    border: solid 6px rgb(255 255 255 /33%);
+    left: 60px;
+
+}
+
+.formulario1,.formulario2,.formulario3 {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 30%;
+    background-color: rgb(16 16 18);
+    border-radius: 13px;
+    border: solid #673AB7;
+}
+
+.boton-salir {
+    display: flex;
+    justify-content: end;
+
+}
+
+#salir,
+#salir2 {
+    width: 30px;
+    height: 30px;
+    background-color: #252530;
+    color: white;
+    font-size: 1rem;
+    border-radius: 20%;
+
+}
+
+label {
+    margin: 5px 9px;
+    color: wheat;
+}
+
+.cajaDeInputs {
+    display: flex;
+    height: 80%;
+}
+
+.labelbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#ventas,
+#interes,
+#salidas,
+#inpBuscarID,
+#buscarRangomin,
+#buscarRangoMax {
+    border-radius: 10px;
+    background: #404062;
+    height: 100%;
+    width: 90%;
+    border: none;
+    outline: none;
+    border-bottom: 4px solid #bd2c2c;
+    color: white;
+    font-size: 1.5rem;
+    padding-left: 10px;
+}
+
+.cajaBoton {
+    display: flex;
+    align-items: flex-end;
+}
+
+#calcular,#btnBuscarID,#btnBuscarRango,#verResumen,#borrarRegistro,#btnRegistroCompleto {
+
+
+    margin: 0 auto;
+    background-color: #252530;
+    color: white;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    height: 50%;
+    margin-bottom: 1px;
+
+}
+
+.segDivision {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+
+}
+
+.resultado {
+    width: 100%;
+    height: 70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        "Tid TventT Tcap Tint TganB TganN Tsal"
+        "id ventas capital interes gananciasB gananciasN salidas ";
+    background-color: rgb(34 34 39);
+    border-radius: 13px;
+}
+
+
+.titid,
+.titVentasT,
+.titcapital,
+.titgananciasN,
+.titint,
+.titgananciasB,
+.titsalidas,
+.idValor,
+.ventasTValor,
+.capitalValor,
+.intValor,
+.gananciaBValor,
+.gananciaNValor,
+.salidasValor {
+    text-align: center;
+    border: 1px solid #673AB7;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    /* background-color: rgb(72 55 146); */
+    color: wheat;
+}
+
+.titid {
+    grid-area: Tid
+}
+
+.titVentasT {
+    grid-area: TventT
+}
+
+.titcapital {
+    grid-area: Tcap;
+}
+
+.titint {
+    grid-area: Tint
+}
+
+.titgananciasB {
+    grid-area: TganB
+}
+
+.titgananciasN {
+    grid-area: TganN;
+}
+
+.titsalidas {
+    grid-area: Tsal
+}
+
+
+
+.idValor {
+    grid-area: id;
+
+}
+
+.ventasTValor {
+    grid-area: ventas;
+}
+
+.capitalValor {
+    grid-area: capital;
+}
+
+.intValor {
+    grid-area: interes;
+}
+
+.gananciasBValor {
+    display: flex;
+    grid-area: gananciasB;
+}
+
+.gananciaNValor {
+    grid-area: gananciasN;
+}
+
+.salidasValor {
+    grid-area: salidas;
+}
+
+.donaPorc {
+    margin: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(16 16 18);
+    border-radius: 13px;
+    border: solid #673AB7
+}
+
+.titBarraRegistro {
+    color: wheat;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+.contCirculo1,
+.contCirculo2,
+.contCirculo3 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+#circulo1,
+#circulo2,
+#circulo3 {
+    width: 130px;
+    height: 130px;
+    position: relative;
+    border-radius: 50%;
+    background: conic-gradient(#3530be 0deg, rgb(35 26 26) 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.circulo2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    content: "x%";
+    font-size: 33px;
+    font-weight: bold;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+
+}
+
+
+
+.aparecer {
+
+    left: 0px;
+    transition: 0.5s;
+    opacity: 100%;
+    position: relative;
+    z-index: 1;
+
+}
+
+/* caja2 BUSQUEDA POR ID */
+
+.formulario2{
+    justify-content: center;
+}
+
+.cajaDeInputsBusqId{
+    display: flex;
+    height: 40%;
+    align-items: center;
+}
+#inpBuscarID{
+    width: 40%;
+}
+.resp2{
+    margin-top: 30px;
+}
+#btnBuscarID{
+    height: 70%;
+    width: 100px;
+}
+
+.resultado2{
+    margin-top: 40px;
+    width: 100%;
+    height: 200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+        "Tid2 TventT2 Tcap2 Tint2 TganB2 TganN2 Tsal2"
+        "id2 ventas2 capital2 interes2 gananciasB2 gananciasN2 salidas2 "
+        "Tfecha2 Tfecha2 Tfecha2 Tfecha2 Thora2 Thora2 Thora2"
+        "fecha2 fecha2 fecha2 fecha2 hora2 hora2 hora2";
+    background-color: rgb(34 34 39);
+    border-radius: 13px;
+}
+
+.titid2,
+.titVentasT2,
+.titcapital2,
+.titgananciasN2,
+.titint2,
+.titgananciasB2,
+.titsalidas2,
+.titfecha2,
+.tithora2,
+.idValor2,
+.ventasTValor2,
+.capitalValor2,
+.intValor2,
+.gananciaBValor2,
+.gananciaNValor2,
+.salidasValor2,
+.fechaValor2,
+.horaValor2 {
+    text-align: center;
+    border: 1px solid #b73a3a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    color: wheat;
+
+}
+
+.titid2 {
+    grid-area: Tid2
+}
+
+.titVentasT2 {
+    grid-area: TventT2
+}
+
+.titcapital2 {
+    grid-area: Tcap2
+}
+
+.titint2 {
+    grid-area: Tint2
+}
+
+.titgananciasB2 {
+    grid-area: TganB2
+}
+
+.titgananciasN2 {
+    grid-area: TganN2
+}
+
+.titsalidas2 {
+    grid-area: Tsal2
+}
+
+.titfecha2{
+    grid-area: Tfecha2
+}
+
+.tithora2{
+    grid-area: Thora2
+}
+
+
+.idValor2 {
+    grid-area: id2
+
+}
+
+.ventasTValor2 {
+    grid-area: ventas2
+}
+
+.capitalValor2 {
+    grid-area: capital2
+}
+
+.intValor2 {
+    grid-area: interes2
+}
+
+.gananciasBValor2 {
+
+    grid-area: gananciasB2
+}
+
+.gananciaNValor2 {
+    grid-area: gananciasN2
+}
+
+.salidasValor2 {
+    grid-area: salidas2
+}
+
+.fechaValor2{
+    grid-area:fecha2
+}
+
+.horaValor2{
+    grid-area: hora2
+}
+
+.cuadroResp2{
+    width: 100%;
+    height: 10%;
+    background-color: rgb(16 16 18);
+    border-radius: 13px;
+    border: solid #b73a3a;
+    margin-top: 20px;
+    color: wheat;
+    font-size: 20px;
+}
+
+
+
+/* CAJA 3 BUSCAR X RANGO */
+
+.formulario3{
+    flex-direction: row;
+    align-items: center;
+    height: 30%;
+} 
+
+#buscarRangomin, #buscarRangoMax {
+    width: 25%;
+    height: 30%;
+
+}
+
+#btnBuscarRango {
+    width: 85px;
+    height: 32%;
+}
+
+.resultadoBusquedaRango{
+    width: 100%;
+    height: 60%;
+    background-color: rgb(16 16 18);
+    border-radius: 13px;
+    border: solid #b73a3a;
+    margin-top: 25px;
+
+}
+
+.titulos{
+    width: 100%;
+    height: 30px;
+    background-color: rgb(34 34 39);
+    border-radius: 13px;
+    display: grid;
+    grid-template-columns: 50px repeat(8, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas: "Tid3 TventT3 Tcap3 Tint3 TganB3 TganN3 Tsal3 Tfecha3 Thora3";
+}
+
+
+
+.titid3,
+.titVentasT3,
+.titcapital3,
+.titgananciasN3,
+.titint3,
+.titgananciasB3,
+.titsalidas3,
+.titfecha3,
+.tithora3,
+.idValor3{
+    text-align: center;
+    border: 1px solid #b73a3a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    color: wheat;
+}
+
+
+.titid3{
+    grid-area: Tid3;
+}
+.titVentasT3{
+    grid-area: TventT3;
+}
+.titcapital3{
+    grid-area: Tcap3 ;
+}
+.titgananciasN3{
+    grid-area:TganN3 ;
+}
+.titint3{
+    grid-area: Tint3;
+}
+.titgananciasB3{
+    grid-area: TganB3;
+}
+.titsalidas3{
+    grid-area:Tsal3  ;
+}
+.titfecha3{
+    grid-area: Tfecha3;
+}
+.tithora3{
+    grid-area: Thora3;
+}
+
+.resp3{
+    margin: 10px auto 0px auto;
+    width: 99.5%;
+    height: 240px;
+    background-color: rgb(16 16 18);
+    border-radius: 5px;
+    overflow-y: scroll;
+}
+
+.idValor3,.ventasTValor3,.capitalValor3,.intValor3,.gananciaBValor3,.gananciaNValor3,.salidasValor3,.fechaValor3,.horaValor3{
+    border: 1px solid #673AB7
+}
+
+
+
+/* CAJA 4 VER REGISTRO COMPLETO */
+
+.resultadoRegistroCompleto{
+    width: 100%;
+    height: 85%;
+    background-color: rgb(197, 197, 212);
+    border-radius: 13px;
+    border: solid #b73a3a;
+    margin-top: 25px;
+}
+.registroCompleto{
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+
+}
+
+.resp4{
+    margin: 7px auto 0px auto;
+    width: 99.5%;
+    height: 90%;
+    background-color: rgb(16 16 18);
+    border-radius: 5px;
+    overflow-y: scroll;
+}
+
+.idValor4,.ventasTValor4,.capitalValor4,.intValor4,.gananciaBValor4,.gananciaNValor4,.salidasValor4,.fechaValor4,.horaValor4{
+    border: 1px solid #b73a3a
+}
+
+#btnRegistroCompleto{
+    width: 200px;
+    height: 30px;
+}
+
+/*CAJA 5 RESUMEN */
+
+.formulario5{
+    height: 40px;
+}
+
+.resp5{
+    padding: 10px;
+    width: 100%;
+    height: 90%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 40px 60px 2fr;
+    row-gap: 10px;
+    grid-template-areas: "ventasTot gananciasTot interesTot salidasTot"
+                        "ventasVal gananciasVal interesVal salidasVal "
+                        "cuadroResp5 cuadroResp5 cuadroResp5 cuadroResp5";
+}
+
+
+.ventasTit,.gananciasTit,.interesTit,.salidasTit{
+    color: wheat;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 800;
+    border: solid #b73a3a;
+    background-color: rgb(16 16 18);
+}
+
+.ventasTValor5,.gananciaNValor5,.interesValor5,.salidasValor5,.cuadroResp5{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: wheat;
+    font-size: 18px;
+    font-weight: 600;
+    border: solid #b73a3a;
+    text-align: center;
+    background-color: rgb(16 16 18);
+}
+
+
+.ventasTit{
+    grid-area:ventasTot ;
+}
+.gananciasTit{
+    grid-area: gananciasTot;
+}
+.interesTit{
+    grid-area: interesTot;
+}
+.salidasTit{
+    grid-area: salidasTot;
+}
+.ventasTValor5{
+    grid-area: ventasVal;
+}
+.gananciaNValor5{
+    grid-area: gananciasVal;
+}
+.interesValor5{
+    grid-area: interesVal;
+}
+.salidasValor5{
+    grid-area: salidasVal;
+}
+
+.cuadroResp5{
+    grid-area: cuadroResp5;
+}
+
+#verResumen{
+    width: 200px;
+    height: 33px;
+}
+
+/* CAJA 6 BORRAR REGISTRO */
+
+.box6{
+    width: 500px;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.formulario6{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+    background-color: #0c0303;
+    padding: 20px;
+}
+
+#idABorrar{
+    border-radius: 10px;
+    background: #404062;
+    height: 10%;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-bottom: 4px solid #bd2c2c;
+    color: white;
+    font-size: 1.5rem;
+    padding-left: 10px;
+
+}
+#borrarRegistro{
+    width: 200px;
+    height: 33px;
+}
+
+.borrado{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(16 16 18);
+    
+    color: wheat;
+    font-size: 20px;
+}
+
+
+
+@media (max-width: 500px) {
+    .left0 {
+        width: 100vw;
+        z-index: 2;
+        position: absolute;
+        left: 0;
+        background-color: rgba(0, 0, 0)
+    }
+}
