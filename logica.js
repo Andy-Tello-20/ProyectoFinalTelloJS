@@ -134,10 +134,21 @@ btnCalcular.addEventListener("click", (event) => {
   let valorInt = parseInt(interesInp.value)
   let valorSalidas = parseInt(salidasInp.value)
 
+  //operador ternario para ejecutar un "alert" de SweetAlert: Lo que sucede es que cuando uno de los inputs sea distinto de un numero, aparecera un alert anunciando el error. Pero como los inputs estan limitados a una escritura de tipo "number" se puede sobre entender que el "sweetAlert" unicamente aparecera cuando un campo este vacio ya que " vacio y NaN" son distintos de un numero
 
-  registrar(valorVentas, valorInt, valorSalidas)
+  let condicion
+  condicion = !isNaN(valorVentas) && !isNaN(valorInt) && !isNaN(valorSalidas)? (registrar(valorVentas, valorInt, valorSalidas),formulario1.reset()):Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Uno de los campos esta incompleto!',
+    
+  })
 
-  formulario1.reset()
+
+
+  
+
+  
 
 
 
@@ -419,6 +430,7 @@ function buscarPorVentas(x, y, z) {
 
 
         let grilla = document.createElement('div');
+        grilla.style.gap="10px 10px"
         grilla.style.display = "flex"
         grilla.style.textAlign = "center"
         grilla.style.width = "100%";
@@ -524,6 +536,7 @@ function registroCompleto(x) {
 
 
         let grilla = document.createElement('div');
+        grilla.style.gap="10px 5px"
         grilla.style.display = "flex"
         grilla.style.textAlign = "center"
         grilla.style.width = "100%";
@@ -731,25 +744,38 @@ function borrarRegistro(x, y) {
             if (obtenerId) {
                 function confirmar() {
 
-                    let confirmarBorrado = confirm(`está seguro de borrar el registro Id: ${obtenerId.id}, Ventas: $${obtenerId.ventasT}, Interes: $${obtenerId.interes}, Ganancias: $${obtenerId.gananciaN}, Salidas: $${obtenerId.salidas} `)
 
-                    if (confirmarBorrado) {
-
-                        //Busco indice en la listaRegistros a traves del ID
-
-                        let indice = x.indexOf(obtenerId)
-
-                        //Borro registro en "listaRegistro" segun indice 
-
-                        x.splice(indice, 1)
-
-                        localStorage.setItem("registros", JSON.stringify(x))
-
-                        cuadroResp6.innerText=`El registro con ID: ${obtenerId.id}, ha sido eliminado`
-
-                    } else {
-                        cuadroResp6.innerText="Operacion cancelada"
+                  Swal.fire({
+                    title: `está seguro de borrar el registro Id: ${obtenerId.id}`,
+                    text: "¡No podrás revertir esto!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, Bórralo!',
+                    cancelButtonText: 'No, cancela!',
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      Swal.fire(
+                        'Deleted!',
+                        `El registro con ID: ${obtenerId.id}, ha sido eliminado`,
+                        'success',
+                      )
+                    }else if (
+                      /* Read more about handling dismissals below */
+                      result.dismiss === Swal.DismissReason.cancel
+                    ) {
+                      Swal.fire(
+                        "Operacion cancelada",
+                        'Tu archivo imaginario está a salvo :)',
+                        'error'
+                      )
                     }
+                  })
+
+                    
+
+      
 
                 }
                 confirmar()
@@ -775,3 +801,4 @@ btnBorrarRegistro.addEventListener("click", (event) => {
 
     formulario6.reset()
 })
+

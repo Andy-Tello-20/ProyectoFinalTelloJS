@@ -460,31 +460,38 @@ label {
 }
 
 .titid2 {
-    grid-area: Tid2
+    grid-area: Tid2;
+    background-color: rgb(42 42 75);
 }
 
 .titVentasT2 {
-    grid-area: TventT2
+    grid-area: TventT2;
+    background-color: rgb(42 42 75);
 }
 
 .titcapital2 {
-    grid-area: Tcap2
+    grid-area: Tcap2;
+    background-color: rgb(42 42 75);
 }
 
 .titint2 {
-    grid-area: Tint2
+    grid-area: Tint2;
+    background-color: rgb(42 42 75);
 }
 
 .titgananciasB2 {
-    grid-area: TganB2
+    grid-area: TganB2;
+    background-color: rgb(42 42 75);
 }
 
 .titgananciasN2 {
-    grid-area: TganN2
+    grid-area: TganN2;
+    background-color: rgb(42 42 75);
 }
 
 .titsalidas2 {
-    grid-area: Tsal2
+    grid-area: Tsal2;
+    background-color: rgb(42 42 75);
 }
 
 .titfecha2 {
@@ -579,7 +586,7 @@ label {
 .titulos {
     width: 99.5%;
     height: 30px;
-
+    gap: 10px;
     border-radius: 13px;
     display: grid;
     grid-template-columns: 50px repeat(8, 1fr);
@@ -724,10 +731,11 @@ label {
     background-color: rgb(42 42 75);
     align-items: center;
     border-radius: 10px;
-    border: solid rgb(72 55 146);
+    
 }
 
 .resp5 {
+    gap: 10px 10px;
     margin-top: 10px;
     width: 100%;
     height: 90%;
@@ -749,9 +757,9 @@ label {
     text-align: center;
     font-size: 18px;
     font-weight: 800;
-    border: solid #b73a3a;
+    background-color: rgb(42 42 75);
     border-radius: 10px;
-    background-color: rgb(16 16 18);
+    
 }
 
 .ventasTValor5,
@@ -765,10 +773,10 @@ label {
     color: wheat;
     font-size: 18px;
     font-weight: 600;
-    border: solid rgb(87 71 116);
+    border: solid #b73a3a;
     border-radius: 10px;
     text-align: center;
-    background-color: rgb(16 16 18);
+    
 }
 
 
