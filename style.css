@@ -68,6 +68,10 @@ h2 {
 
 }
 
+.slideContainer{
+    height: 100%;
+}
+
 .left0 {
     display: flex;
     justify-content: center;
@@ -76,7 +80,6 @@ h2 {
     opacity: 0;
     width: 250px;
     left: -200px;
-    height: 600px;
     background-color: #2a2a4b;
     transition: 0.5s ease;
     color: white;
@@ -101,7 +104,6 @@ h2 {
     display: flex;
     width: 100%;
     padding: 30px;
-    justify-content: space-between;
     align-items: center;
     flex-direction: column
 }
