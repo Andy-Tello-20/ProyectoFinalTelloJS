@@ -65,10 +65,11 @@ h2 {
 #main {
 
     display: flex;
+    height: 85%;
 
 }
 
-.slideContainer{
+#slideContainer{
     height: 100%;
 }
 
