@@ -137,19 +137,12 @@ btnCalcular.addEventListener("click", (event) => {
   //operador ternario para ejecutar un "alert" de SweetAlert: Lo que sucede es que cuando uno de los inputs sea distinto de un numero, aparecera un alert anunciando el error. Pero como los inputs estan limitados a una escritura de tipo "number" se puede sobre entender que el "sweetAlert" unicamente aparecera cuando un campo este vacio ya que " vacio y NaN" son distintos de un numero
 
   let condicion
-  condicion = !isNaN(valorVentas) && !isNaN(valorInt) && !isNaN(valorSalidas)? (registrar(valorVentas, valorInt, valorSalidas),formulario1.reset()):Swal.fire({
+  condicion = !isNaN(valorVentas) && !isNaN(valorInt) && !isNaN(valorSalidas) ? (registrar(valorVentas, valorInt, valorSalidas), formulario1.reset()) : Swal.fire({
     icon: 'error',
     title: 'Oops...',
     text: 'Uno de los campos esta incompleto!',
-    
+
   })
-
-
-
-  
-
-  
-
 
 
 
@@ -384,10 +377,17 @@ btnBuscarId.addEventListener("click", (event) => {
   listaRegistros = JSON.parse(localStorage.getItem("registros"))
   let valorBusquedaId = parseInt(buscarPorId.value)
 
-  buscar(valorBusquedaId, listaRegistros)
+  let condicion
+  condicion = !isNaN(valorBusquedaId) ? (buscar(valorBusquedaId, listaRegistros), formulario2.reset()) :
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Uno de los campos esta incompleto!',
 
-  // reseteo formulario2
-  formulario2.reset()
+    })
+
+
+
 
 })
 
@@ -430,7 +430,7 @@ function buscarPorVentas(x, y, z) {
 
 
         let grilla = document.createElement('div');
-        grilla.style.gap="10px 10px"
+        grilla.style.gap = "10px 10px"
         grilla.style.display = "flex"
         grilla.style.textAlign = "center"
         grilla.style.width = "100%";
@@ -510,9 +510,17 @@ btnBuscarRango.addEventListener("click", (event) => {
   let valorInpRangomin = parseInt(buscarRangomin.value);
   let valorInpRangoMax = parseInt(buscarRangoMax.value);
 
-  buscarPorVentas(valorInpRangomin, valorInpRangoMax, listaRegistros);
 
-  formulario3.reset();
+  //operador ternario para ejecutar un "alert" de SweetAlert: Lo que sucede es que cuando uno de los inputs sea distinto de un numero, aparecera un alert anunciando el error. Pero como los inputs estan limitados a una escritura de tipo "number" se puede sobre entender que el "sweetAlert" unicamente aparecera cuando un campo este vacio ya que " vacio y NaN" son distintos de un numero
+
+  let condicion
+  condicion = !isNaN(valorInpRangomin) && !isNaN(valorInpRangoMax) ? (buscarPorVentas(valorInpRangomin, valorInpRangoMax, listaRegistros), formulario3.reset()) : Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Uno de los campos esta incompleto!',
+
+  })
+
 });
 
 /*-------------------------------------------------------------------------------------------------------- */
@@ -536,7 +544,7 @@ function registroCompleto(x) {
 
 
         let grilla = document.createElement('div');
-        grilla.style.gap="10px 5px"
+        grilla.style.gap = "10px 5px"
         grilla.style.display = "flex"
         grilla.style.textAlign = "center"
         grilla.style.width = "100%";
@@ -632,89 +640,137 @@ btnRegistroCompleto.addEventListener("click", (event) => {
 
 /*CAJA 5 RESUMEN */
 
-let formulario5 = document.getElementsByClassName("formulario5")[0]
-let btnResumen = document.getElementById("verResumen")
-let resumenResp = document.getElementsByClassName("resumenResp")[0]
 
-let ventasTValor5= document.getElementsByClassName("ventasTValor5")[0]
-let gananciaNValor5=document.getElementsByClassName("gananciaNValor5")[0]
-let interesValor5= document.getElementsByClassName("interesValor5")[0]
-let salidasValor5= document.getElementsByClassName ("salidasValor5")[0]
+let btnResumen = document.getElementById("verResumen")
+
+let resumenResp = document.getElementsByClassName("resumenResp")[0]
+let ventasTValor5 = document.getElementsByClassName("ventasTValor5")[0]
+let gananciaNValor5 = document.getElementsByClassName("gananciaNValor5")[0]
+let interesValor5 = document.getElementsByClassName("interesValor5")[0]
+let salidasValor5 = document.getElementsByClassName("salidasValor5")[0]
 
 
 
 
 function resumenContabilidad(x) {
 
-    if (x !== null) {
+  if (x !== null) {
 
-        if (listaRegistros.length > 0) {
+    if (listaRegistros.length > 0) {
 
-            let rango = listaRegistros.filter(
-                (i) => i.ventasT > 0 && i.ventasT <= Infinity
-            )
-
-            /*let contTotal = listaRegistros.map(
-                (i) => `Id: ${i.id}, Ventas: $${i.ventas}, Interés: $${i.interes}, Ganancia: $${i.ganancia}, Salidas: $${i.salidas}`
-            )
- 
-            let mensaje = contTotal.join("\n\n")*/
-
-            let reduceVentas = rango.reduce((acumulador, i) => {
-                return acumulador + i.ventasT
-            }, 0)
-
-            let reduceGanancias = rango.reduce((acumulador, i) => {
-                return acumulador + i.gananciaN
-            }, 0)
-
-            let reduceInteres = rango.reduce((acumulador, i) => {
-                return acumulador + i.interes
-            }, 0)
-
-            let reduceSalidas = rango.reduce((acumulador, i) => {
-                return acumulador + i.salidas
-            }, 0)
+      
 
 
-            let promedioInteres = reduceInteres / rango.length
-
-            ventasTValor5.innerText=`💲 ${reduceVentas}`
-            gananciaNValor5.innerText=`💲 ${reduceGanancias.toFixed(2)}`
-            interesValor5.innerText=`${promedioInteres.toFixed(2)}%`
-            salidasValor5.innerText=`💲 ${reduceSalidas} `
-            
+      let rango = listaRegistros.filter(
+        (i) => i.ventasT > 0 && i.ventasT <= Infinity
+      )
 
 
-           
 
-            let resumenRespuesta
+      let reduceVentas = rango.reduce((acumulador, i) => {
+        return acumulador + i.ventasT
+      }, 0)
 
-            if (reduceGanancias == reduceSalidas) {
-              resumenRespuesta = "Estás obteniendo un equilibrio entre los ingresos generados y los gastos incurridos en tu negocio"
-            } else if (reduceGanancias < reduceSalidas) {
-              resumenRespuesta = "Estás incurriendo en pérdidas, tu negocio no está generando suficientes ingresos para cubrir los costos o gastos"
-            } else {
-                let porcentajeRentabilidad = ((reduceGanancias - reduceSalidas) / reduceSalidas) * 100
+      let reduceGanancias = rango.reduce((acumulador, i) => {
+        return acumulador + i.gananciaN
+      }, 0)
 
-                resumenRespuesta = `Estás obteniendo un rendimiento positivo del ${porcentajeRentabilidad.toFixed(2)}% en tu negocio, lo cual es deseable y demuestra que tu actividad comercial es rentable.`
-            }
+      let reduceInteres = rango.reduce((acumulador, i) => {
+        return acumulador + i.interes
+      }, 0)
 
-            resumenResp.innerText = `${resumenRespuesta}`
+      let reduceSalidas = rango.reduce((acumulador, i) => {
+        return acumulador + i.salidas
+      }, 0)
 
-        }
-    } else {
-        alert("El registro esta vacio")
+
+      let promedioInteres = reduceInteres / rango.length
+
+      ventasTValor5.innerText = `💲 ${reduceVentas}`
+      gananciaNValor5.innerText = `💲 ${reduceGanancias.toFixed(2)}`
+      interesValor5.innerText = `${promedioInteres.toFixed(2)}%`
+      salidasValor5.innerText = `💲 ${reduceSalidas} `
+
+
+
+
+
+      let resumenRespuesta
+
+      if (reduceGanancias == reduceSalidas) {
+        resumenRespuesta = "Estás obteniendo un equilibrio entre los ingresos generados y los gastos incurridos en tu negocio"
+      } else if (reduceGanancias < reduceSalidas) {
+        resumenRespuesta = "Estás incurriendo en pérdidas, tu negocio no está generando suficientes ingresos para cubrir los costos o gastos"
+      } else {
+        let porcentajeRentabilidad = ((reduceGanancias - reduceSalidas) / reduceSalidas) * 100
+
+        resumenRespuesta = `Estás obteniendo un rendimiento positivo del ${porcentajeRentabilidad.toFixed(2)}% en tu negocio, lo cual es deseable y demuestra que tu actividad comercial es rentable.`
+      }
+
+      resumenResp.innerText = `${resumenRespuesta}`
+
     }
+  } else {
+    alert("El registro esta vacio")
+  }
 }
 
 
 btnResumen.addEventListener("click", (event) => {
-    event.preventDefault()
 
-    listaRegistros = JSON.parse(localStorage.getItem("registros"))
+// Reinicio los valores de los contenedores por cada vez que hago click en el boton "ver resumen"
 
-    resumenContabilidad(listaRegistros)
+ventasTValor5.innerText = ""
+gananciaNValor5.innerText = ""
+interesValor5.innerText = ""
+salidasValor5.innerText = ""
+resumenResp.innerText = ""
+
+
+  event.preventDefault()
+
+  listaRegistros = JSON.parse(localStorage.getItem("registros"))
+
+  //PROMESA.. luego de 5 segundos se resuelve la promesa, previamente se ejecuta un "sweetAlert" con Un mensaje con temporizador de cierre automático
+
+
+  function esperarUnosSegundos() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+
+        resolve(resumenContabilidad(listaRegistros));
+      }, 3000);
+    });
+  }
+
+
+  esperarUnosSegundos().then()
+
+
+
+
+  let timerInterval
+  Swal.fire({
+    title: 'Tu resumen estara listo en breve',
+    html: 'esta ventana se cerrara en <b></b> milliseconds.',
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: () => {
+      Swal.showLoading()
+      const b = Swal.getHtmlContainer().querySelector('b')
+      timerInterval = setInterval(() => {
+        b.textContent = Swal.getTimerLeft()
+      }, 100)
+    },
+    willClose: () => {
+      clearInterval(timerInterval)
+    }
+  }).then((result) => {
+    /* Read more about handling dismissals below */
+    if (result.dismiss === Swal.DismissReason.timer) {
+      console.log('I was closed by the timer')
+    }
+  })
 
 })
 
@@ -731,74 +787,88 @@ let cuadroResp6 = document.getElementsByClassName("resp6")[0]
 
 function borrarRegistro(x, y) {
 
-    if (x !== null) {
+  if (x !== null) {
 
-        if (x.length > 0) {
-
-            
-            //obtengo el objeto.ID
-            let obtenerId = x.find(
-                (i) => i.id == y
-            )
-
-            if (obtenerId) {
-                function confirmar() {
+    if (x.length > 0) {
 
 
-                  Swal.fire({
-                    title: `está seguro de borrar el registro Id: ${obtenerId.id}`,
-                    text: "¡No podrás revertir esto!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Si, Bórralo!',
-                    cancelButtonText: 'No, cancela!',
-                  }).then((result) => {
-                    if (result.isConfirmed) {
-                      Swal.fire(
-                        'Deleted!',
-                        `El registro con ID: ${obtenerId.id}, ha sido eliminado`,
-                        'success',
-                      )
-                    }else if (
-                      /* Read more about handling dismissals below */
-                      result.dismiss === Swal.DismissReason.cancel
-                    ) {
-                      Swal.fire(
-                        "Operacion cancelada",
-                        'Tu archivo imaginario está a salvo :)',
-                        'error'
-                      )
-                    }
-                  })
+      //obtengo el objeto.ID
+      let obtenerId = x.find(
+        (i) => i.id == y
+      )
 
-                    
+      if (obtenerId) {
+        function confirmar() {
 
-      
 
-                }
-                confirmar()
+          Swal.fire({
+            title: `está seguro de borrar el registro Id: ${obtenerId.id}`,
+            text: "¡No podrás revertir esto!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, Bórralo!',
+            cancelButtonText: 'No, cancela!',
 
-            } else {
-                cuadroResp6.innerText="El ID ingresado no existe"
+
+          }).then((result) => {
+            if (result.isConfirmed) {
+
+              //Busco indice en la listaRegistros a traves del ID
+
+              let indice = x.indexOf(obtenerId)
+
+              //Borro registro en "listaRegistro" segun indice 
+
+              x.splice(indice, 1)
+
+              localStorage.setItem("registros", JSON.stringify(x))
+
+
+              Swal.fire(
+                'Deleted!',
+                `El registro con ID: ${obtenerId.id}, ha sido eliminado`,
+                'success',
+              )
+            } else if (
+              /* Read more about handling dismissals below */
+              result.dismiss === Swal.DismissReason.cancel
+            ) {
+              Swal.fire(
+                "Operacion cancelada",
+                'Tu archivo imaginario está a salvo :)',
+                'error'
+              )
             }
-        }
+          })
 
-    } else {
-        cuadroResp6.innerText="El registro esta vacio"
+
+
+
+
+        }
+        confirmar()
+
+      } else {
+        cuadroResp6.innerText = "El ID ingresado no existe"
+      }
     }
+
+  } else {
+    cuadroResp6.innerText = "El registro esta vacio"
+  }
 }
 
 btnBorrarRegistro.addEventListener("click", (event) => {
-    event.preventDefault()
+  event.preventDefault()
 
-    listaRegistros = JSON.parse(localStorage.getItem("registros"))
+  listaRegistros = JSON.parse(localStorage.getItem("registros"))
 
-    let valorInpBorrar = parseInt(inpBorrarId.value)
+  let valorInpBorrar = parseInt(inpBorrarId.value)
 
-    borrarRegistro(listaRegistros, valorInpBorrar)
+  borrarRegistro(listaRegistros, valorInpBorrar)
 
-    formulario6.reset()
+  formulario6.reset()
 })
 
