@@ -63,3 +63,6 @@ botones.forEach(boton => {
     }
   });
 });
+
+
+//DATO IMPORTANTE. crear y diseñar una funcion que al cambiar de ventana, los datos reflejados se reinicien o queden vacios " "

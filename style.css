@@ -860,9 +860,19 @@ label {
 
 }
 
-#borrarRegistro {
+#borrarRegistro,#borrarTodo {
     width: 200px;
     height: 33px;
+}
+
+#borrarTodo{
+    margin: 0 auto;
+    background-color: #252530;
+    color: white;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    height: 33px;
+    margin-bottom: 1px;
 }
 
 .borrado {

@@ -71,7 +71,7 @@ function registrar(x, y, z) {
 
     contador = ultimoID
 
-    //console.log(long)
+    
 
 
   } else { // sino "listaRegistros" empieza estando vacia y el contador arranca en 0
@@ -106,7 +106,7 @@ function registrar(x, y, z) {
 
   let nuevoRegistro = new moldeRegistro(Id, ventasT, inversion, interes, salidas, gananciaB, gananciaN, dia, mes, año, hora, minutos, segundos)
 
-  console.log(nuevoRegistro)
+  
 
   listaRegistros.push(nuevoRegistro)
 
@@ -153,9 +153,9 @@ btnCalcular.addEventListener("click", (event) => {
 let capitalInicial, capitalFinal, rendimiento, formula1, formula1A, formula2, formula2A, formula3, formula3A
 
 //Capturo los circulos y los porcentajes
-let circulo1 = document.getElementById("circulo1");
-let circulo2 = document.getElementById("circulo2");
-let circulo3 = document.getElementById("circulo3");
+let circulo1 = document.getElementById("circulo1")
+let circulo2 = document.getElementById("circulo2")
+let circulo3 = document.getElementById("circulo3")
 let porcentaje1 = document.getElementById("porcentaje1")
 let porcentaje2 = document.getElementById("porcentaje2")
 let porcentaje3 = document.getElementById("porcentaje3")
@@ -175,11 +175,11 @@ function cambiarGradosA(circulo, porcentaje, x, y) {
   // Si el valor es negativo, cambiamos el gradiente a rojo
   if (y < 0) {
     circulo.style.background = `conic-gradient(rgb(255 0 0) ${x}deg, rgb(35 26 26) 0deg)`
-    porcentaje.style.color = `rgb(255 0 0)`; // Cambiar color del porcentaje a rojo
+    porcentaje.style.color = `rgb(255 0 0)` // Cambiar color del porcentaje a rojo
   } else {
     // Si es positivo o cero, cambiamos el gradiente a verde
     circulo.style.background = `conic-gradient(rgb(69 201 43) ${x}deg, rgb(35 26 26) 0deg)`
-    porcentaje.style.color = `rgb(69 201 43)`; // Cambiar color del porcentaje a verde
+    porcentaje.style.color = `rgb(69 201 43)` // Cambiar color del porcentaje a verde
   }
 
   porcentaje.innerText = `${y}%`
@@ -189,13 +189,13 @@ function cambiarGradosA(circulo, porcentaje, x, y) {
 
 
 btnCalcular.addEventListener("click", (event) => {
-  event.preventDefault();
+  event.preventDefault()
   porcentaje1.style.color = `rgb(108, 48, 190)`
   porcentaje2.style.color = `rgb(108, 48, 190)`
   porcentaje3.style.color = `rgb(108, 48, 190)`
-  porcentaje1.innerText = `0%`;
-  porcentaje2.innerText = `0%`;
-  porcentaje3.innerText = `0%`;
+  porcentaje1.innerText = `0%`
+  porcentaje2.innerText = `0%`
+  porcentaje3.innerText = `0%`
 
   // Reiniciar los valores de las fórmulas a 0
 
@@ -211,7 +211,7 @@ btnCalcular.addEventListener("click", (event) => {
   //RENDIMIENTO
 
   rendimiento = ((gananciaN_global / gananciaB_global) * 100)
-  console.log(`el rendimiento es ${rendimiento}%`)
+  
 
 
 
@@ -221,7 +221,7 @@ btnCalcular.addEventListener("click", (event) => {
   formula1 = parseInt((((capitalFinal * 100) / capitalInicial) * 360) / 100)
   formula1A = parseInt(((capitalFinal * 100) / capitalInicial).toFixed(2))
 
-  console.log(`los grados del capital son ${formula1}`)
+
 
 
   formula2 = parseInt((360 * rendimiento) / 100)
@@ -229,13 +229,13 @@ btnCalcular.addEventListener("click", (event) => {
     formula2 = formula2 * (-1)
   }
 
-  console.log(`los grados del rendimiento son ${formula2}`)
+
 
   formula2A = parseInt((rendimiento).toFixed(2))
 
 
 
-  console.log(formula2A)
+  
 
 
   formula3 = parseInt((((gananciaN_global * 100) / gananciaB_global) * 360) / 100)
@@ -244,14 +244,13 @@ btnCalcular.addEventListener("click", (event) => {
     formula3 = 0
   }
 
-  console.log(formula3)
 
   formula3A = parseInt(((gananciaN_global * 100) / gananciaB_global).toFixed(2))
 
 
   // set interval le da una transicion de carga a las barras de progreso
   if (formula1 > 0) {
-    let inicio = 0;
+    let inicio = 0
     let intervalo = setInterval(() => {
       inicio += 1
       cambiarGrados(circulo1, porcentaje1, inicio, formula1A)
@@ -265,17 +264,17 @@ btnCalcular.addEventListener("click", (event) => {
   }
 
   if (formula2 > 0) {
-    let inicio = 0;
+    let inicio = 0
     let intervalo = setInterval(() => {
-      inicio += 1;
+      inicio += 1
       cambiarGrados(circulo2, porcentaje2, inicio, formula2A)
-      console.log(formula2A)
+      
 
       if (inicio == formula2) {
         cambiarGradosA(circulo2, porcentaje2, inicio, formula2A)
         clearInterval(intervalo)
       }
-    }, 5);
+    }, 5)
   }
 
   if (formula3 > 0) {
@@ -288,13 +287,13 @@ btnCalcular.addEventListener("click", (event) => {
         cambiarGradosA(circulo3, porcentaje3, inicio, formula3A)
         clearInterval(intervalo)
       }
-    }, 5);
+    }, 5)
   } else if (formula3 == 0) {
     inicio = 0
     cambiarGrados(circulo3, porcentaje3, inicio, formula3A)
     cambiarGradosA(circulo3, porcentaje3, inicio, formula3A)
   }
-});
+})
 
 
 /*----------------------------------------------------------------------------------------------------------- */
@@ -397,28 +396,28 @@ btnBuscarId.addEventListener("click", (event) => {
 
 
 
-let buscarRangomin = document.getElementById("buscarRangomin");
-let buscarRangoMax = document.getElementById("buscarRangoMax");
-let btnBuscarRango = document.getElementById("btnBuscarRango");
+let buscarRangomin = document.getElementById("buscarRangomin")
+let buscarRangoMax = document.getElementById("buscarRangoMax")
+let btnBuscarRango = document.getElementById("btnBuscarRango")
 
-let formulario3 = document.getElementsByClassName("formulario3")[0];
-let subResp3 = document.getElementsByClassName("subResp3")[0];
+let formulario3 = document.getElementsByClassName("formulario3")[0]
+let subResp3 = document.getElementsByClassName("subResp3")[0]
 
 function buscarPorVentas(x, y, z) {
   if (z !== null) {
     if (listaRegistros.length > 0) {
-      let minimo, maximo;
-      minimo = x;
-      maximo = y;
+      let minimo, maximo
+      minimo = x
+      maximo = y
 
-      let rango = listaRegistros.filter((i) => i.ventasT >= minimo && i.ventasT <= maximo);
-      let copiaRango = rango.slice().sort((a, b) => a.ventasT - b.ventasT);
+      let rango = listaRegistros.filter((i) => i.ventasT >= minimo && i.ventasT <= maximo)
+      let copiaRango = rango.slice().sort((a, b) => a.ventasT - b.ventasT)
 
 
 
 
       // Borra el contenido actual de subResp3 antes de agregar nuevos elementos
-      subResp3.innerHTML = "";
+      subResp3.innerHTML = ""
 
 
       copiaRango.forEach((i) => {
@@ -429,86 +428,86 @@ function buscarPorVentas(x, y, z) {
         //Luego se crean diversas variables las cuales tendran el valor de cada iteracion del metodo foreach y se ubicaran en una respectiva celda creada por la "grilla"
 
 
-        let grilla = document.createElement('div');
+        let grilla = document.createElement('div')
         grilla.style.gap = "10px 10px"
         grilla.style.display = "flex"
         grilla.style.textAlign = "center"
-        grilla.style.width = "100%";
-        grilla.style.height = "30px";
-        grilla.style.backgroundColor = "rgb(16 16 18)";
+        grilla.style.width = "100%"
+        grilla.style.height = "30px"
+        grilla.style.backgroundColor = "rgb(16 16 18)"
         grilla.style.color = "wheat"
-        grilla.style.display = "grid";
-        grilla.style.gridTemplateColumns = "50px repeat(8, 1fr)";
-        grilla.style.gridTemplateRows = "1fr";
-        grilla.style.gridTemplateAreas = "'Valorid3 ValorventT3 Valorcap3 Valorint3 ValorganB3 ValorganN3 Valorsal3 Valorfecha3 Valorhora3'";
+        grilla.style.display = "grid"
+        grilla.style.gridTemplateColumns = "50px repeat(8, 1fr)"
+        grilla.style.gridTemplateRows = "1fr"
+        grilla.style.gridTemplateAreas = "'Valorid3 ValorventT3 Valorcap3 Valorint3 ValorganB3 ValorganN3 Valorsal3 Valorfecha3 Valorhora3'"
 
-        let idValor3 = document.createElement('span');
-        idValor3.className = "idValor3";
-        idValor3.style.gridArea = "Valorid3";
-        idValor3.innerText = `${i.id}`;
+        let idValor3 = document.createElement('span')
+        idValor3.className = "idValor3"
+        idValor3.style.gridArea = "Valorid3"
+        idValor3.innerText = `${i.id}`
 
-        let ventasTValor3 = document.createElement('span');
-        ventasTValor3.className = "ventasTValor3";
-        ventasTValor3.style.gridArea = "ValorventT3";
-        ventasTValor3.innerText = `$${i.ventasT}`;
+        let ventasTValor3 = document.createElement('span')
+        ventasTValor3.className = "ventasTValor3"
+        ventasTValor3.style.gridArea = "ValorventT3"
+        ventasTValor3.innerText = `$${i.ventasT}`
 
-        let capitalValor3 = document.createElement('span');
-        capitalValor3.className = "capitalValor3";
-        capitalValor3.style.gridArea = "Valorcap3";
-        capitalValor3.innerText = `$${i.inversion}`;
+        let capitalValor3 = document.createElement('span')
+        capitalValor3.className = "capitalValor3"
+        capitalValor3.style.gridArea = "Valorcap3"
+        capitalValor3.innerText = `$${i.inversion}`
 
-        let intValor3 = document.createElement('span');
-        intValor3.className = "intValor3";
-        intValor3.style.gridArea = "Valorint3";
-        intValor3.innerText = `%${i.interes}`;
+        let intValor3 = document.createElement('span')
+        intValor3.className = "intValor3"
+        intValor3.style.gridArea = "Valorint3"
+        intValor3.innerText = `%${i.interes}`
 
-        let gananciaBValor3 = document.createElement('span');
-        gananciaBValor3.className = "gananciaBValor3";
-        gananciaBValor3.style.gridArea = "ValorganB3";
-        gananciaBValor3.innerText = `$${i.gananciaB}`;
+        let gananciaBValor3 = document.createElement('span')
+        gananciaBValor3.className = "gananciaBValor3"
+        gananciaBValor3.style.gridArea = "ValorganB3"
+        gananciaBValor3.innerText = `$${i.gananciaB}`
 
-        let gananciaNValor3 = document.createElement('span');
-        gananciaNValor3.className = "gananciaNValor3";
-        gananciaNValor3.style.gridArea = "ValorganN3";
-        gananciaNValor3.innerText = `$${i.gananciaN}`;
+        let gananciaNValor3 = document.createElement('span')
+        gananciaNValor3.className = "gananciaNValor3"
+        gananciaNValor3.style.gridArea = "ValorganN3"
+        gananciaNValor3.innerText = `$${i.gananciaN}`
 
-        let salidasValor3 = document.createElement('span');
-        salidasValor3.className = "salidasValor3";
-        salidasValor3.style.gridArea = "Valorsal3";
-        salidasValor3.innerText = `$${i.salidas}`;
+        let salidasValor3 = document.createElement('span')
+        salidasValor3.className = "salidasValor3"
+        salidasValor3.style.gridArea = "Valorsal3"
+        salidasValor3.innerText = `$${i.salidas}`
 
-        let fechaValor3 = document.createElement('span');
-        fechaValor3.className = "fechaValor3";
-        fechaValor3.style.gridArea = "Valorfecha3";
-        fechaValor3.innerText = `${i.dia}/${i.mes}/${i.año}`;
+        let fechaValor3 = document.createElement('span')
+        fechaValor3.className = "fechaValor3"
+        fechaValor3.style.gridArea = "Valorfecha3"
+        fechaValor3.innerText = `${i.dia}/${i.mes}/${i.año}`
 
-        let horaValor3 = document.createElement('span');
-        horaValor3.className = "horaValor3";
-        horaValor3.style.gridArea = "Valorhora3";
-        horaValor3.innerText = `${i.hora}:${i.minutos}:${i.segundos}`;
+        let horaValor3 = document.createElement('span')
+        horaValor3.className = "horaValor3"
+        horaValor3.style.gridArea = "Valorhora3"
+        horaValor3.innerText = `${i.hora}:${i.minutos}:${i.segundos}`
 
         // Agrega cada elemento como hijos del contenedor div grilla. Esta parte es importante ya que una vez el que metodo foreach haya asignado a cada variable un valor, estas deben ingresar a al "grilla" para ubicarse en su respectiva celda con su valor obtenido
         grilla.append(idValor3, ventasTValor3, capitalValor3, intValor3, gananciaBValor3, gananciaNValor3, salidasValor3, fechaValor3, horaValor3)
 
         // Agrega el div grilla al subResp3
-        subResp3.append(grilla);
+        subResp3.append(grilla)
 
-      });
+      })
 
 
     }
   } else {
-    cuadroResp3.innerText = "El registro está vacío";
+    cuadroResp3.innerText = "El registro está vacío"
   }
 }
 
 btnBuscarRango.addEventListener("click", (event) => {
-  event.preventDefault();
+  event.preventDefault()
 
-  listaRegistros = JSON.parse(localStorage.getItem("registros"));
+  listaRegistros = JSON.parse(localStorage.getItem("registros"))
 
-  let valorInpRangomin = parseInt(buscarRangomin.value);
-  let valorInpRangoMax = parseInt(buscarRangoMax.value);
+  let valorInpRangomin = parseInt(buscarRangomin.value)
+  let valorInpRangoMax = parseInt(buscarRangoMax.value)
 
 
   //operador ternario para ejecutar un "alert" de SweetAlert: Lo que sucede es que cuando uno de los inputs sea distinto de un numero, aparecera un alert anunciando el error. Pero como los inputs estan limitados a una escritura de tipo "number" se puede sobre entender que el "sweetAlert" unicamente aparecera cuando un campo este vacio ya que " vacio y NaN" son distintos de un numero
@@ -521,7 +520,7 @@ btnBuscarRango.addEventListener("click", (event) => {
 
   })
 
-});
+})
 
 /*-------------------------------------------------------------------------------------------------------- */
 
@@ -529,7 +528,7 @@ btnBuscarRango.addEventListener("click", (event) => {
 
 let subResp4 = document.getElementsByClassName("subResp4")[0]
 let btnRegistroCompleto = document.getElementById("btnRegistroCompleto")
-let formulario4 = document.getElementsByClassName("formulario4")[0];
+let formulario4 = document.getElementsByClassName("formulario4")[0]
 
 function registroCompleto(x) {
 
@@ -543,71 +542,69 @@ function registroCompleto(x) {
       let iterarTodo = x.forEach((i) => {
 
 
-        let grilla = document.createElement('div');
+        let grilla = document.createElement('div')
         grilla.style.gap = "10px 5px"
         grilla.style.display = "flex"
         grilla.style.textAlign = "center"
-        grilla.style.width = "100%";
-        grilla.style.height = "30px";
-        grilla.style.backgroundColor = "rgb(16 16 18)";
+        grilla.style.width = "100%"
+        grilla.style.height = "30px"
+        grilla.style.backgroundColor = "rgb(16 16 18)"
         grilla.style.color = "wheat"
-        grilla.style.display = "grid";
-        grilla.style.gridTemplateColumns = "50px repeat(8, 1fr)";
-        grilla.style.gridTemplateRows = "1fr";
-        grilla.style.gridTemplateAreas = "'Valorid4 ValorventT4 Valorcap4 Valorint4 ValorganB4 ValorganN4 Valorsal4 Valorfecha4 Valorhora4'";
+        grilla.style.display = "grid"
+        grilla.style.gridTemplateColumns = "50px repeat(8, 1fr)"
+        grilla.style.gridTemplateRows = "1fr"
+        grilla.style.gridTemplateAreas = "'Valorid4 ValorventT4 Valorcap4 Valorint4 ValorganB4 ValorganN4 Valorsal4 Valorfecha4 Valorhora4'"
 
-        let idValor4 = document.createElement('span');
-        idValor4.className = "idValor4";
-        idValor4.style.gridArea = "Valorid4";
-        idValor4.innerText = `${i.id}`;
+        let idValor4 = document.createElement('span')
+        idValor4.className = "idValor4"
+        idValor4.style.gridArea = "Valorid4"
+        idValor4.innerText = `${i.id}`
 
-        let ventasTValor4 = document.createElement('span');
-        ventasTValor4.className = "ventasTValor4";
-        ventasTValor4.style.gridArea = "ValorventT4";
-        ventasTValor4.innerText = `$${i.ventasT}`;
+        let ventasTValor4 = document.createElement('span')
+        ventasTValor4.className = "ventasTValor4"
+        ventasTValor4.style.gridArea = "ValorventT4"
+        ventasTValor4.innerText = `$${i.ventasT}`
 
-        let capitalValor4 = document.createElement('span');
-        capitalValor4.className = "capitalValor4";
-        capitalValor4.style.gridArea = "Valorcap4";
-        capitalValor4.innerText = `$${i.inversion}`;
+        let capitalValor4 = document.createElement('span')
+        capitalValor4.className = "capitalValor4"
+        capitalValor4.style.gridArea = "Valorcap4"
+        capitalValor4.innerText = `$${i.inversion}`
 
-        let intValor4 = document.createElement('span');
-        intValor4.className = "intValor4";
-        intValor4.style.gridArea = "Valorint4";
-        intValor4.innerText = `%${i.interes}`;
+        let intValor4 = document.createElement('span')
+        intValor4.className = "intValor4"
+        intValor4.style.gridArea = "Valorint4"
+        intValor4.innerText = `%${i.interes}`
 
-        let gananciaBValor4 = document.createElement('span');
-        gananciaBValor4.className = "gananciaBValor4";
-        gananciaBValor4.style.gridArea = "ValorganB4";
-        gananciaBValor4.innerText = `$${i.gananciaB}`;
+        let gananciaBValor4 = document.createElement('span')
+        gananciaBValor4.className = "gananciaBValor4"
+        gananciaBValor4.style.gridArea = "ValorganB4"
+        gananciaBValor4.innerText = `$${i.gananciaB}`
 
-        let gananciaNValor4 = document.createElement('span');
-        gananciaNValor4.className = "gananciaNValor4";
-        gananciaNValor4.style.gridArea = "ValorganN4";
-        gananciaNValor4.innerText = `$${i.gananciaN}`;
+        let gananciaNValor4 = document.createElement('span')
+        gananciaNValor4.className = "gananciaNValor4"
+        gananciaNValor4.style.gridArea = "ValorganN4"
+        gananciaNValor4.innerText = `$${i.gananciaN}`
 
-        let salidasValor4 = document.createElement('span');
-        salidasValor4.className = "salidasValor4";
-        salidasValor4.style.gridArea = "Valorsal4";
-        salidasValor4.innerText = `$${i.salidas}`;
+        let salidasValor4 = document.createElement('span')
+        salidasValor4.className = "salidasValor4"
+        salidasValor4.style.gridArea = "Valorsal4"
+        salidasValor4.innerText = `$${i.salidas}`
 
-        let fechaValor4 = document.createElement('span');
-        fechaValor4.className = "fechaValor4";
-        fechaValor4.style.gridArea = "Valorfecha4";
-        fechaValor4.innerText = `${i.dia}/${i.mes}/${i.año}`;
+        let fechaValor4 = document.createElement('span')
+        fechaValor4.className = "fechaValor4"
+        fechaValor4.style.gridArea = "Valorfecha4"
+        fechaValor4.innerText = `${i.dia}/${i.mes}/${i.año}`
 
-        let horaValor4 = document.createElement('span');
-        horaValor4.className = "horaValor4";
-        horaValor4.style.gridArea = "Valorhora4";
-        horaValor4.innerText = `${i.hora}:${i.minutos}:${i.segundos}`;
+        let horaValor4 = document.createElement('span')
+        horaValor4.className = "horaValor4"
+        horaValor4.style.gridArea = "Valorhora4"
+        horaValor4.innerText = `${i.hora}:${i.minutos}:${i.segundos}`
 
         // Agrega cada elemento como hijos del contenedor div grilla. Esta parte es importante ya que una vez el que metodo foreach haya asignado a cada variable un valor, estas deben ingresar a al "grilla" para ubicarse en su respectiva celda con su valor obtenido
         grilla.append(idValor4, ventasTValor4, capitalValor4, intValor4, gananciaBValor4, gananciaNValor4, salidasValor4, fechaValor4, horaValor4)
 
         // Agrega el div grilla al subResp3
-        subResp4.append(grilla);
-
-
+        subResp4.append(grilla)
 
 
       })
@@ -615,7 +612,7 @@ function registroCompleto(x) {
 
     }
   } else {
-    cuadroResp4.innerText = "El registro esta vacio"
+    subResp4.innerText = "El registro esta vacio"
   }
 }
 
@@ -723,7 +720,7 @@ fetch("https://api.bluelytics.com.ar/v2/latest")
 
     }
   } else {
-    alert("El registro esta vacio")
+    resumenResp.innerText = `Tu registro esta vacio`
   }
 }
 
@@ -750,9 +747,9 @@ resumenResp.innerText = ""
     return new Promise((resolve, reject) => {
       setTimeout(() => {
 
-        resolve(resumenContabilidad(listaRegistros));
-      }, 3000);
-    });
+        resolve(resumenContabilidad(listaRegistros))
+      }, 3000)
+    })
   }
 
 
@@ -795,6 +792,7 @@ let formulario6 = document.getElementsByClassName("formulario6")[0]
 let inpBorrarId = document.getElementById("idABorrar")
 let btnBorrarRegistro = document.getElementById("borrarRegistro")
 let cuadroResp6 = document.getElementsByClassName("resp6")[0]
+let btnBorradoCompleto= document.getElementById("borrarTodo")
 
 
 function borrarRegistro(x, y) {
@@ -883,4 +881,59 @@ btnBorrarRegistro.addEventListener("click", (event) => {
 
   formulario6.reset()
 })
+
+
+
+function borrarBseCompleta (x){
+
+  if (x !== null) {
+    Swal.fire({
+      title: `está seguro de borrar la base de datos`,
+      text: "¡No podrás revertir esto!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, Bórralo!',
+      cancelButtonText: 'No, cancela!',
+  
+  
+    }).then((result) => {
+      if (result.isConfirmed) {
+  
+        //borrado completo del localStorage
+  
+        localStorage.clear()
+  
+        Swal.fire(
+          'Deleted!',
+          `La base de datos ha sido borrada `,
+          'success',
+        )
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        Swal.fire(
+          "Operacion cancelada",
+          'Tu archivo imaginario está a salvo :)',
+          'error'
+        )
+      }
+    })
+  }else{
+    cuadroResp6.innerText = "El registro esta vacio"
+  }
+}
+
+
+btnBorradoCompleto.addEventListener("click", (event)=>{
+  event.preventDefault()
+
+
+  listaRegistros = JSON.parse(localStorage.getItem("registros"))
+
+  borrarBseCompleta (listaRegistros)
+})
+
 
