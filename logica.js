@@ -685,7 +685,7 @@ function resumenContabilidad(x) {
 
       let reduceInversion = rango.reduce((acumulador, i) => {
         return acumulador + i.inversion
-      }, 0) + reduceGananciasN
+      }, 0) + (reduceGananciasN)
 
 
       let promedioInteres = reduceInteres / rango.length
@@ -705,7 +705,7 @@ function resumenContabilidad(x) {
       if (reduceGanancias == reduceSalidas) {
         resumenRespuesta = "Estás obteniendo un equilibrio entre los ingresos generados y los gastos incurridos en tu negocio"
       } else if (reduceGanancias < reduceSalidas) {
-        resumenRespuesta = "Estás incurriendo en pérdidas, tu negocio no está generando suficientes ingresos para cubrir los costos o gastos"
+        resumenRespuesta = `Estás incurriendo en pérdidas, tu negocio no está generando suficientes ingresos para cubrir los costos o gastos.\n\n Tu capital disponible para reinvertir es: $${reduceInversion.toFixed(2)}`
       } else {
         let porcentajeRentabilidad = ((reduceGanancias - reduceSalidas) / reduceSalidas) * 100
 
@@ -716,7 +716,7 @@ fetch("https://api.bluelytics.com.ar/v2/latest")
 .then((info)=>{
   let dolarizado=reduceGananciasN/`${info.blue.value_sell}`
 
-  resumenRespuesta = `Estás obteniendo un rendimiento positivo del ${porcentajeRentabilidad.toFixed(2)}% en tu negocio, lo cual es deseable y demuestra que tu actividad comercial es rentable.\n\n Sus ganancias al valor del dolar blue es: UDS ${dolarizado.toFixed(2)}.\n\n Tu capital disponible es: $${reduceInversion.toFixed(2)}`
+  resumenRespuesta = `Estás obteniendo un rendimiento positivo del ${porcentajeRentabilidad.toFixed(2)}% en tu negocio, lo cual es deseable y demuestra que tu actividad comercial es rentable.\n\n Sus ganancias al valor del dolar blue es: UDS ${dolarizado.toFixed(2)}.\n\n Tu capital disponible para reinvertir es: $${reduceInversion.toFixed(2)}`
 
   resumenResp.innerText = `${resumenRespuesta}`
 
