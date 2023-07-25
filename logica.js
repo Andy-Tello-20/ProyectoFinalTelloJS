@@ -667,8 +667,13 @@ function resumenContabilidad(x) {
       }, 0)
 
       let reduceGanancias = rango.reduce((acumulador, i) => {
+        return acumulador + i.gananciaB
+      }, 0)
+
+      let reduceGananciasN = rango.reduce((acumulador, i) => {
         return acumulador + i.gananciaN
       }, 0)
+
 
       let reduceInteres = rango.reduce((acumulador, i) => {
         return acumulador + i.interes
@@ -678,15 +683,20 @@ function resumenContabilidad(x) {
         return acumulador + i.salidas
       }, 0)
 
+      let reduceInversion = rango.reduce((acumulador, i) => {
+        return acumulador + i.inversion
+      }, 0) + reduceGananciasN
+
 
       let promedioInteres = reduceInteres / rango.length
 
       ventasTValor5.innerText = `💲 ${reduceVentas}`
-      gananciaNValor5.innerText = `💲 ${reduceGanancias.toFixed(2)}`
+      gananciaNValor5.innerText = `💲 ${reduceGananciasN.toFixed(2)}`
       interesValor5.innerText = `${promedioInteres.toFixed(2)}%`
       salidasValor5.innerText = `💲 ${reduceSalidas} `
 
-
+      console.log(reduceGanancias)
+      console.log(reduceSalidas)
 
 
 
@@ -704,9 +714,9 @@ function resumenContabilidad(x) {
 fetch("https://api.bluelytics.com.ar/v2/latest")
 .then((res)=> res.json())
 .then((info)=>{
-  let dolarizado=reduceGanancias/`${info.blue.value_sell}`
+  let dolarizado=reduceGananciasN/`${info.blue.value_sell}`
 
-  resumenRespuesta = `Estás obteniendo un rendimiento positivo del ${porcentajeRentabilidad.toFixed(2)}% en tu negocio, lo cual es deseable y demuestra que tu actividad comercial es rentable.\n Sus ganancias al valor del dolar blue es: UDS${dolarizado.toFixed(2)}`
+  resumenRespuesta = `Estás obteniendo un rendimiento positivo del ${porcentajeRentabilidad.toFixed(2)}% en tu negocio, lo cual es deseable y demuestra que tu actividad comercial es rentable.\n\n Sus ganancias al valor del dolar blue es: UDS ${dolarizado.toFixed(2)}.\n\n Tu capital disponible es: $${reduceInversion.toFixed(2)}`
 
   resumenResp.innerText = `${resumenRespuesta}`
 
