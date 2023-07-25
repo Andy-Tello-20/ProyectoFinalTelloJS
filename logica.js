@@ -665,8 +665,6 @@ function resumenContabilidad(x) {
         (i) => i.ventasT > 0 && i.ventasT <= Infinity
       )
 
-
-
       let reduceVentas = rango.reduce((acumulador, i) => {
         return acumulador + i.ventasT
       }, 0)
@@ -704,7 +702,21 @@ function resumenContabilidad(x) {
       } else {
         let porcentajeRentabilidad = ((reduceGanancias - reduceSalidas) / reduceSalidas) * 100
 
-        resumenRespuesta = `Estás obteniendo un rendimiento positivo del ${porcentajeRentabilidad.toFixed(2)}% en tu negocio, lo cual es deseable y demuestra que tu actividad comercial es rentable.`
+//Accediendo a una API https://api.bluelytics.com.ar/v2/latest. Ya que por ultima instancia se optiene un rendimiento positivo demuestra que se estan genereando ganancias por lo tanto la misma podria mostrarse dolarizada al valor del dolar BLUE
+
+fetch("https://api.bluelytics.com.ar/v2/latest")
+.then((res)=> res.json())
+.then((info)=>{
+  let dolarizado=reduceGanancias/`${info.blue.value_sell}`
+
+  resumenRespuesta = `Estás obteniendo un rendimiento positivo del ${porcentajeRentabilidad.toFixed(2)}% en tu negocio, lo cual es deseable y demuestra que tu actividad comercial es rentable.\n Sus ganancias al valor del dolar blue es: UDS${dolarizado.toFixed(2)}`
+
+  resumenResp.innerText = `${resumenRespuesta}`
+
+
+})
+
+
       }
 
       resumenResp.innerText = `${resumenRespuesta}`
