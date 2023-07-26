@@ -1,4 +1,4 @@
-let botones = document.querySelectorAll('.boton');
+let botones = document.querySelectorAll('.boton')
 let registro = document.getElementsByClassName('registro')[0]
 let buscarId = document.getElementsByClassName('busPId')[0]
 let rangoVentas = document.getElementsByClassName('ranVentas')[0]
@@ -20,7 +20,7 @@ let caja6 = document.getElementById("caja6")
 
 
 boton.addEventListener('click', () => {
-  slideContainer.classList.toggle('slide-in');
+  slideContainer.classList.toggle('slide-in')
 
 })
 
@@ -29,40 +29,39 @@ botones.forEach(boton => {
   boton.addEventListener('click', event => {
 
     event.preventDefault()
-    const caja = event.target;
+    const caja = event.target
 
 
     //Importante, aca se captura la caja que contenga una clase llamada "aparecer" 
-    let cajaX = document.querySelectorAll('.aparecer');
+    let cajaX = document.querySelectorAll('.aparecer')
 
     cajaX.forEach(caja => {
       
       // y a esa misma caja se le quita la clase "aparecer" para que que no se visualice hasta que se seleccione una caja en el switch
-      caja.classList.remove('aparecer');
-    });
+      caja.classList.remove('aparecer')
+    })
 
     switch (true) {
       case caja.classList.contains('registro'):
-        caja1.classList.add("aparecer");
-        break;
+        caja1.classList.add("aparecer")
+        break
       case caja.classList.contains('busPId'):
-        caja2.classList.add("aparecer");
-        break;
+        caja2.classList.add("aparecer")
+        break
       case caja.classList.contains('ranVentas'):
-        caja3.classList.add("aparecer");
-        break;
+        caja3.classList.add("aparecer")
+        break
       case caja.classList.contains('regCompleto'):
-        caja4.classList.add("aparecer");
-        break;
+        caja4.classList.add("aparecer")
+        break
       case caja.classList.contains('resumen'):
-        caja5.classList.add("aparecer");
-        break;
+        caja5.classList.add("aparecer")
+        break
       case caja.classList.contains('borrarReg'):
-        caja6.classList.add("aparecer");
-        break;
+        caja6.classList.add("aparecer")
+        break
     }
-  });
-});
+  })
+})
 
 
-//DATO IMPORTANTE. crear y diseñar una funcion que al cambiar de ventana, los datos reflejados se reinicien o queden vacios " "
